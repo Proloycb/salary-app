@@ -87,8 +87,10 @@ function addRecordHandler() {
     showDataError(name, salary);
     return;
   }
-
-  addRecord(name, !salary);
+  // clear data
+  document.getElementById("name").value = '';
+  document.getElementById("salary").value = '';
+  addRecord(name, salary);
 }
 
 function addRecord(name, salary) {
@@ -136,7 +138,7 @@ const displayLastItemDialog = function (lastItem) {
   document.getElementById("showSalary").innerText = d3.format(",.0f")(
     lastItem.salary
   );
-  dlg.dialog({
+  dlg.dialog = () => ({
     buttons: {
       Ok: function () {
         $(this).dialog("close");
@@ -178,7 +180,7 @@ const showRecordCount = function (data) {
 
   document.getElementById("numberOfRecords").innerText = data.length;
 
-  dlg.dialog({
+  dlg.dialog= () => ({
     buttons: {
       Ok: function () {
         $(this).dialog("close");
@@ -225,7 +227,7 @@ const uniquifyNames = function (items) {
   const uniqueNames = {};
 
   return items.map(function (item) {
-    if (uniqueNames[item.name]) {
+    if (uniqueNames[item.name] !== undefined) {
       uniqueNames[item.name] += " ";
       item.name += uniqueNames[item.name];
     } else {

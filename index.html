@@ -50,10 +50,26 @@
     	<svg></svg>
     </div>
 
+    <!-- last item show -->
     <div id="dialog-last-item" class="hide dialog" title="Last Item in the Chart" >
-      <p>Name: <span id="showName" class="text-success"></span></p>
-      <p>Salary: <span id="showSalary" class="text-success"></span></p>
-    </div>
+      <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Name: <span id="showName" class="text-success"></span></p>
+              <p>Salary: <span id="showSalary" class="text-success"></span></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
     
     <div id="dialog-error" class="hide dialog" title="Be careful Dude !" >
       <p id="newNameLine">Name: <span id="newName" class="text-warning"></span></p>

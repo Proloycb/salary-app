@@ -4,7 +4,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
     <script src="scripts/d3.js"></script>
     <script src="scripts/nv.d3.js"></script>
-    <link rel="stylesheet" href="styles/bootstrap.css">
+    <!-- <link rel="stylesheet" href="styles/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/nv.d3.css">
     <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.min.css">
     <style>
@@ -41,31 +42,32 @@
 		    <input class="form-control" type='text' id='name' placeholder='Name'>
 		    <input class="form-control" type='text' id='salary' placeholder='Salary'>
 		    <button class="btn btn-success form-control" id="AddRecord">Add Record</button>
-		    <button class="btn btn-info" id="showLast">Show Last</button>
+		    <button class="btn btn-info" id="showLast" data-toggle="modal" data-target="#myModal">Show Last</button>
 		    <button class="btn btn-info" id="recordCount">Record Count</button>
     	</div>
     </div>
 	
 	<div id="chart">
     	<svg></svg>
-    </div>
+  </div>
 
     <!-- last item show -->
-    <div id="dialog-last-item" class="hide dialog" title="Last Item in the Chart" >
-      <div class="modal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <div id="dialog-last-item" class="hide dialog" title="Last Item in the Chart" ></div>
               <p>Name: <span id="showName" class="text-success"></span></p>
               <p>Salary: <span id="showSalary" class="text-success"></span></p>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -81,5 +83,6 @@
 	  <p>Record count: <span id="numberOfRecords" class="text-success"></span></p>	  
 	</div>
   <h3 class="text-primary hide">Initial Count: <span id="initial-count"></span></h3>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>
 </html>  
